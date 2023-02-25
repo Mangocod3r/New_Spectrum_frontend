@@ -1,0 +1,39 @@
+.nav-link{
+    text-decoration: none;
+    justify-content: end;
+    text-align: center;
+    align-items: center;
+    /* color: rgb(39, 27, 27); */
+    white-space: nowrap;
+    background-color: rgb(rgb(240, 80, 80), rgb(98, 238, 98), rgb(169, 169, 187));
+}
+.nav-link:hover{
+    border-radius: 7px;
+    background-color: rgb(136, 126, 227);
+}
+.s1{
+    white-space: nowrap;
+    justify-content: end;
+    text-align: center;
+    align-items: center;
+    color: rgb(23, 93, 234);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.s2{
+    text-decoration: none;
+    justify-content: end;
+    gap:10px;
+    text-align: center;
+    align-items: center;
+}
+.navbar-collapse{
+    justify-content: end;
+    text-align: center;
+    align-items: center;
+}
+.logo{
+    font-weight: bold;
+    font-style: italic;
+
+}
