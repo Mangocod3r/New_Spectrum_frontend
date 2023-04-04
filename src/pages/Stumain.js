@@ -16,7 +16,7 @@ export default function Stumain() {
     ]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/posts_main')
+        fetch(`${process.env.REACT_APP_API_HOST}/posts_main`)
             .then((res) => res.json())
             .then((jsonRes) => setCats(jsonRes));
     }, []);
@@ -61,8 +61,8 @@ export default function Stumain() {
         return (
             <div className="col-sm-4">
                 {/* <a href="stu_vm"> */}
-                <Link to = {`/stu_vm/${card.title}`}>
-                    <div className="text-center shadow p-3 mb-5 bg-white rounded">
+                <Link to = {`/stu_vm/${card.title}`} style={{textDecoration:'none'}}>
+                    <div className="text-center shadow p-3 mb-5 bg-white rounded box">
                         <img
                             src={card.img}
                             className="img-fluid"
@@ -70,7 +70,7 @@ export default function Stumain() {
                         />
                         <div>
                             <h5>
-                                <span style={{ fontWeight: 600 }}>{card.title} </span>
+                                <span style={{ fontWeight: 600}}>{card.title} </span>
                             </h5>
                         </div>
                     </div>
@@ -106,8 +106,7 @@ export default function Stumain() {
                         />
 
                         <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h5>VIRTUAL REALITY</h5>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -119,16 +118,14 @@ export default function Stumain() {
                         />
 
                         <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            </p>
+                            <h5>DATA SCIENCE</h5>
+                        
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
                 <h1
                     className="text-center"
-                    style={{ paddingTop: "15%", paddingBottom: "5%", fontWeight: 600 }}
+                    style={{ paddingTop: "15%", paddingBottom: "5%", fontWeight: 600 , color:'#0056D2'}}
                 >
                     AVAILABLE CATEGORIES
                 </h1>

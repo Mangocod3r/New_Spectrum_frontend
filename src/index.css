@@ -128,3 +128,19 @@ form.signup, form.login {
   background: #fff;
   border-radius: 4px;
 }
+
+.not-found{
+  justify-content: center;
+  /* text-align: center; */
+  margin: 20%;
+}
+.not-found h2{
+  color: #0056D2;
+  font-style: italic;
+}
+.not-found p{
+  font-size: 19px;
+}
+.not-found a{
+  /* text-decoration: none; */
+}

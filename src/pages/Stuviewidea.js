@@ -4,16 +4,24 @@ import { useParams } from "react-router-dom";
 export default function Stuviewidea() {
   const { title } = useParams()
 
+  const statusColors = {
+    accepted: 'success',
+    rejected: 'danger',
+    pending: 'secondary'
+  };
+
   const [cats, setCats] = useState([
     {
       // overview: "",
       title: "",
       my_idea: "",
+      status: 'pending',
     }
   ]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/stu_ideas')
+    fetch(`${process.env.REACT_APP_API_HOST}/stu_ideas`)
+    // fetch('http://localhost:4000/stu_ideas')
       .then((res) => res.json())
       .then((jsonRes) => setCats(jsonRes));
   }, []);
@@ -36,9 +44,13 @@ export default function Stuviewidea() {
             Hence, a project in which you can process images of an entire area or region by tracking people on the road or streets to analyze if they are wearing masks or not would be a spectacular idea. With the help of image processing algorithms and deep learning techniques, you can compute images of people who are wearing masks.
           </p>
         </div> */}
-        <div className='shadow p-3 mb-5 bg-red rounded'>
-          <h3 className="mb-4"> YOUR IDEA</h3>
-          <p>
+        <div className='shadow p-3 mb-5 bg-red rounded box1'>
+          <div className="text-right">
+            <span className={`badge bg-${statusColors[cats.status]}`}>{cats.status}</span>
+          </div>
+          <h3 className="mb-4" style={{ color: '#0056F2' }}> YOUR IDEA</h3>
+
+          <p style={{ fontSize: '22px' }}>
             {cats.my_idea}
           </p>
         </div>
@@ -51,7 +63,7 @@ export default function Stuviewidea() {
     <>
       <div className="container-fluid main">
         <div className="col">
-        <h1 className="text-center p-4"><em>{title}</em></h1>
+          <h1 className="text-center p-4" style={{ color: '#0056D2' }}><em>{title}</em></h1>
           {post.map(renderCard)}
           <div><p /></div>
         </div>

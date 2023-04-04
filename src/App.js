@@ -15,19 +15,27 @@ import Entresp from "./pages/Entresp"
 import Entmain from './pages/Entmain'
 import Entupload from './pages/Entupload'
 import Notfound from './pages/Notfound'
+import Home from './pages/Home'
+import './style.css'
+// import { AnimatePresence } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 
 function App() {
   const { user } = useAuthContext()
+  // const location = useLocation();
+  // console.log(location);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter >
+      {/* <AnimatePresence onExitComplete> */}
       <BasicExample></BasicExample>
       <Routes>
         <Route
           path="/"
           element={
             user ? (user.role === 'Student' ? <Stumain /> : <Entmain />) :
-              <Navigate to="/login" />
+              <Home />
+            // <Navigate to="/login" />
           }
         />
         <Route
@@ -76,6 +84,8 @@ function App() {
           element={<Notfound />}
         />
       </Routes>
+      {/* </AnimatePresence> */}
+
     </BrowserRouter>
   );
 }

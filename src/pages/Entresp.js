@@ -164,58 +164,194 @@
 
 import { useState, useEffect } from "react";
 import { Link, useParams } from 'react-router-dom';
+import { Form, Control } from "react-bootstrap";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import { useAuthContext } from '../hooks/useAuthContext'
 
 export default function Entresp() {
+  const navigate = useNavigate();
+
   const { header } = useParams()
+  const [status, setStatus] = useState("");
   // const { user } = useAuthContext()
 
-  console.log(header)
+  // console.log(header)
+  const statusColors = {
+    accepted: 'success',
+    rejected: 'danger',
+    pending: 'secondary'
+  };
+
   const [cats, setCats] = useState([
     {
       title: "",
       my_idea: "",
-      name:"",
+      name: "",
+      progress:"",
     }
   ]);
 
-  useEffect(() => {
-    fetch("http://localhost:4000/stu_ideas")
-      .then((res) => res.json())
-      .then((jsonRes) => setCats(jsonRes));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:4000/stu_ideas")
+  //     .then((res) => res.json())
+  //     .then((jsonRes) => setCats(jsonRes));
+  // }, []);
 
   useEffect(() => {
-    console.log(cats);
+    fetch(`${process.env.REACT_APP_API_HOST}/stu_ideas`)
+    // fetch("http://localhost:4000/stu_ideas")
+      .then((res) => res.json())
+      .then((jsonRes) => {
+        const filteredCats = jsonRes.filter((cat) => cat.title === header);
+        setCats(filteredCats);
+      });
+  }, [header, status]);
+
+  useEffect(() => {
+    // console.log(cats);
   }, [cats]);
 
   const post = cats.filter(post => post.title === header)
-console.log(post)
-  const renderCard = (cats, index) => {
-    return (
+  // console.log(post)
 
+  // const createPost = (index) => {
+  //   const id = cats[index]._id;
+  //   const updatedData = {
+  //     ...cats[index],
+  //     status: "accepted"  // Set the status of the idea to "accepted"
+  //   };
+  //   console.log("iii");
+  //   try {
+  //     axios.put(`http://localhost:4000/stu_ideas/${id}`, updatedData);
+  //     // console.log(res.data);
+  //     // navigate("/");
+  //     setStatus("accepted");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  const createPostAcc = async (index) => {
+    const id = cats[index]._id;
+    const updatedData = {
+      ...cats[index],
+      status: "accepted"
+    };
+    try {
+      // fetch(`${process.env.REACT_APP_API_HOST}/stu_ideas/${id}`)
+      const response = await axios.put(`${process.env.REACT_APP_API_HOST}/stu_ideas/${id}`, updatedData);
+      const updatedIdea = response.data;
+      console.log(updatedIdea);
+      setStatus("accepted");
+
+      // If you want to update the state of your component with the new data:
+      // setCats([...cats.slice(0, index), updatedIdea, ...cats.slice(index + 1)]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+  const createPostRej = async (index) => {
+    const id = cats[index]._id;
+    const updatedData = {
+      ...cats[index],
+      status: "rejected"
+    };
+    try {
+      const response = await axios.put(`${process.env.REACT_APP_API_HOST}/stu_ideas/${id}`, updatedData);
+      const updatedIdea = response.data;
+      console.log(updatedIdea);
+      setStatus("rejected");
+
+      // If you want to update the state of your component with the new data:
+      // setCats([...cats.slice(0, index), updatedIdea, ...cats.slice(index + 1)]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+
+//   const createPost = (e) => {
+//     console.log("hi");
+//     e.preventDefault();
+
+//     const updatedData = {
+//           // ...cats[index],
+//           status: "accepted"  // Set the status of the idea to "accepted"
+//         };
+//     axios
+//         .post("/stu_km", updatedData)
+//         .then((res) => console.log(res))
+//         .catch((err) => console.log(err));
+
+//     navigate("/stu_ideas");
+// };
+
+  const renderCard = (cats, index) => {
+    // if(post.length == 0){
+    //   console.log("hii")
+    //   return (
+    //     // console.log("hi")
+    //     <div>hi</div>
+    //   );
+    // }
+    // else{
+      // const handleAccept = () => {
+      //   const id = cats._id; // get the ID of the idea from the database
+      //   axios
+      //     .post(`http://localhost:4000/stu_ideas/${id}`, { status: "accepted" }) // update the status of the idea to "accepted" in the database
+      //     .then((res) => {
+      //       setStatus("accepted"); // update the status state variable
+      //       navigate(`/entresp/${header}`); // navigate back to the same page
+      //     })
+      //     .catch((err) => console.log(err));
+      // };
+
+    return (
+      post &&
       <tr>
         <td>
-          <h2 className="text-center">RESPONSE {index+1}</h2>
+          <h2 className="text-center" style={{ color: '#0056D2' }}>RESPONSE {index + 1}</h2>
           <div className="shadow p-3 mb-5 bg-red rounded">
             <div>
               <div className="text-right">
-                <span className="badge bg-success">In Progress</span>
+                <span className={`badge bg-${statusColors[cats.status]}`}>{cats.status}</span>
               </div>
               <p style={{ fontSize: '20px' }}>
                 {cats.my_idea}
               </p>
               <p>By {cats.name}</p>
               <div className="d-flex justify-content-end display-5 gap-2">
+                {/* <p>{cats.status}</p> */}
                 <a href="#">
-                  <button type="button" className="btn btn-success">
+                  {/* <button type="button" className="btn btn-success">
                     APPROVE
+                  </button> */}
+                  {cats.status !== "accepted" && (
+                    <button
+                    className='my-button bb blue'
+                    onClick={() =>createPostAcc(index)}
+                    // value={cats.progress}
+                    variant="outline-success"
+                    style={{ borderRadius: '2rem' }}
+                  >
+                    ACCEPT
                   </button>
-                </a>
+                  )}
+                  </a>
                 <a href="#">
-                  <button type="button" className="btn btn-danger">
-                    DISAPPROVE
+                {cats.status !== "rejected" && (
+                    <button
+                    className='my-button bb'
+                    onClick={() =>createPostRej(index)}
+                    // value={cats.progress}
+                    variant="outline-success"
+                    style={{ borderRadius: '2rem' }}
+                  >
+                    REJECT
                   </button>
+                  )}
                 </a>
               </div>
             </div>
@@ -223,30 +359,38 @@ console.log(post)
         </td>
       </tr>
     );
+    // }
   };
 
-  return (
-    <>
-      <div className="container-fluid main" id="productTable">
-        {/* <div className="input-group" style={{ paddingTop: 128 }}>
+  if (post.length === 0) {
+    return (
+      <p className="no">No responses yet <span>Come back later..</span></p>
+    );
+  }
+  else {
+    return (
+      <>
+        <div className="container-fluid main p-5" id="productTable">
+          {/* <div className="input-group" style={{ paddingTop: 128 }}>
           <span className="input-group-btn">
             <button className="btn btn-default" type="button"><span className="glyphicon glyphicon-search" /></button>
           </span>
         </div> */}
-        {/* <h1 className="text-center p-5">{post.title}</h1> */}
-        <table className="table-fill table-bordered">
-          <thead>
-            <tr>
-              <th>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {post.map(renderCard)}
-          </tbody>
-        </table>
-      </div>
-      {/* <Footer></Footer> */}
-    </>
-  );
+          {/* <h1 className="text-center p-5">{post.title}</h1> */}
+          <table className="table-fill" style={{ margin: 'auto' }}>
+            <thead>
+              <tr>
+                <th>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {post.map(renderCard)}
+            </tbody>
+          </table>
+        </div>
+        {/* <Footer></Footer> */}
+      </>
+    );
+  }
 }

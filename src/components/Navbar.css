@@ -5,11 +5,20 @@
     align-items: center;
     /* color: rgb(39, 27, 27); */
     white-space: nowrap;
-    background-color: rgb(rgb(240, 80, 80), rgb(98, 238, 98), rgb(169, 169, 187));
+    /* background-color: rgb(rgb(240, 80, 80), rgb(98, 238, 98), rgb(169, 169, 187)); */
 }
+
 .nav-link:hover{
     border-radius: 7px;
-    background-color: rgb(136, 126, 227);
+    background-color: #0056D2;
+    --bs-nav-link-hover-color:#fff;
+    /* color: rgb(234, 18, 18); */
+}
+.navi:hover{
+  border-radius: 7px;
+  /* background-color: #0056D2; */
+  /* color: rgb(234, 18, 18); */
+  color: aliceblue;
 }
 .s1{
     white-space: nowrap;
@@ -37,3 +46,95 @@
     font-style: italic;
 
 }
+@media(max-width: 992px){
+  .navbar-nav{
+    /* flex-direction: row !important; */
+  }
+  .mt-3{
+    /* flex: row !important; */
+    /* display: flexbox; */
+margin-right: 15rem !important;
+    /* margin-left: -20px; */
+    /* justify-content: center; */
+    /* text-align: center; */
+  }
+}
+
+@media (min-width: 767.98px) {
+    .navbar-nav{
+      flex-direction: row !important;
+    }
+  .navbar-toggler-icon {
+    display: flex !important;
+  }
+  .navbar-expand-lg .navbar-toggler {
+    display: none !important;
+  }
+  .navbar-collapse.collapse{
+    display: flex !important;
+    flex-basis: auto;
+  }
+  /* .navbar-toggler {
+    margin-left: auto;
+  } */
+}
+@media (max-width: 767.98px){
+  .navbar-toggler {
+    margin-left: auto;
+  }
+}
+/* @media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+    .navigation-menu ul {
+      display: none;
+    }
+  }
+.hamburger {
+    border: 0;
+    height: 40px;
+    width: 40px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: #283b8b;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    display: none;
+  }
+  .hamburger:hover {
+    background-color: #2642af;
+  } */
+/*CHAT-GPT */
+  /* @media (max-width: 767.98px) {
+    .navbar-nav {
+      flex-direction: column !important;
+      align-items: center;
+    }
+    .navbar-collapse.collapse {
+      display: none !important;
+    }
+    .navbar-toggler {
+      display: block !important;
+      margin-left: auto;
+    }
+  }
+  @media (min-width: 768px) {
+    .navbar-nav {
+      flex-direction: row !important;
+    }
+    .navbar-collapse.collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-toggler {
+      display: none !important;
+    }
+  } */
+  

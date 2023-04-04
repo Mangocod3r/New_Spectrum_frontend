@@ -141,7 +141,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext'
-
+// import './upload.css'
 export default function Entmain() {
   // const { name } = useParams()
   const { user } = useAuthContext()
@@ -165,7 +165,8 @@ console.log(user)
   ]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/posts")
+    fetch(`${process.env.REACT_APP_API_HOST}/posts`)
+    // fetch("http://localhost:4000/posts")
       .then((res) => res.json())
       .then((jsonRes) => setCats(jsonRes));
   }, []);
@@ -180,18 +181,18 @@ console.log(user)
     return (
       <tr>
         <td>
-          <h1 className="text-center">{cats.header}</h1>
-          <div className="shadow p-3 mb-5 bg-red rounded">
+          <h1 className="text-center " style={{color:'#0056D2'}}>{cats.header}</h1>
+          <div className="shadow p-3 mb-5 bg-red rounded main1">
             <div>
-              <div className="text-right">
+              {/* <div className="text-right">
                 <span className="badge bg-success">In Progress</span>
-              </div>
+              </div> */}
               <p style={{ fontSize: '20px' }}>
                 {cats.overview}
               </p>
-              <div className="display-5 text-center">
+              <div className="display-5 text-center entbut">
                 <Link to={`/entresp/${cats.header}`}>
-                  <button type="button" className="btn btn-block btn-success">
+                  <button className="my-button bb blue s">
                     SEE YOUR RESPONSES
                   </button>
                 </Link>
@@ -203,9 +204,23 @@ console.log(user)
     );
   };
 
+  if (post.length === 0) {
+    return (
+      <p className="no"><em>No existing projects yet </em>
+      <div>
+        <span>Upload 
+        <Link to='/upload'>
+          <span style={{textDecoration:'none'}}className='link'><bold> HERE </bold></span>
+          </Link>
+        to start your journey</span>
+        </div>
+        </p>
+    );
+  }
+  else{
   return (
     <>
-      <div className="container-fluid main p-5 mt-5" id="productTable">
+      <div className="container-fluid main p-5 "  id="productTable">
         {/* <Header></Header> */}
         {/* <p className="text-center p-1" style={{ fontSize: '40px', fontWeight: 600 }}>{post.title}</p> */}
         <table className="table-fill">
@@ -223,4 +238,5 @@ console.log(user)
       {/* <Footer></Footer> */}
     </>
   );
+ }
 }
