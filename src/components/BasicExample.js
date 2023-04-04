@@ -22,7 +22,7 @@ export default function BasicExample() {
   ]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/posts_main')
+    fetch(`${process.env.REACT_APP_API_HOST}/posts_main`)
       .then((res) => res.json())
       .then((jsonRes) => setCats(jsonRes));
   }, []);
