@@ -74,7 +74,7 @@ export default function Stuknowmore() {
         e.preventDefault();
 
         axios
-            .post("/stu_km", catsup)
+            .post(`${process.env.REACT_APP_API_HOST}/stu_km`, catsup)
             .then((res) => console.log(res))
             .catch((err) => console.log(err));
 
