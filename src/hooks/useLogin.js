@@ -13,8 +13,9 @@ export const useLogin = () => {
 
     setIsLoading(true)
     setError(null)
+    fetch(`${process.env.REACT_APP_API_HOST}/posts/${header}`)
 
-    const response = await fetch('/api/user/login', {
+    const response = await fetch(`${process.env.REACT_APP_API_HOST}/api/user/login`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ email, password })
