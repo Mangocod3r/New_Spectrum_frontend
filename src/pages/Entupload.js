@@ -146,7 +146,7 @@ function CreatePost() {
     e.preventDefault();
 
     axios
-      .post("/create", post)
+      .post(`${process.env.REACT_APP_API_HOST}/create`, post)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
