@@ -106,15 +106,15 @@ export default function Stuknowmore() {
                             <div className="text-center">
                             </div>
                             <h3 className='text-center p-2' style={{color:"#0056F1"}}><em>Problem Statement</em> </h3>
-                            <p style={{ fontSize: '20px' }}>
+                            <p className='prob_text'>
                                 {card.description}
                             </p>
                             <div className="text-right">
-                                <i className="bi bi-calendar-plus" style={{ fontSize: '20px' }}>
+                                <i className="bi bi-calendar-plus prob_text" >
                                     {card.start}
                                 </i>
                                 <p />
-                                <i className="bi bi-calendar-minus" style={{ fontSize: '20px' }}>
+                                <i className="bi bi-calendar-minus prob_text">
                                     {card.end}
                                 </i>
                             </div>
@@ -172,7 +172,7 @@ export default function Stuknowmore() {
 
     return (
         <>
-            <div className="container-fluid main p-5" id="productTable">
+            <div className="container-fluid main" id="productTable">
                 {post.map(renderCard)}
             </div>
         </>
