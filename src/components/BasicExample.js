@@ -22,6 +22,7 @@ export default function BasicExample() {
   ]);
 
   useEffect(() => {
+    // fetch(`${process.env.REACT_APP_API_HOST}/stu_ideas`)
     fetch(`${process.env.REACT_APP_API_HOST}/posts_main`)
       .then((res) => res.json())
       .then((jsonRes) => setCats(jsonRes));
@@ -47,7 +48,7 @@ export default function BasicExample() {
     return (
       <Navbar bg="light" expand="lg" className='shadow p-2  bg-white rounded sticky-top'>
         <Container>
-          <Navbar.Brand style={{textDecoration:'none',color:'#0056d2',fontWeight:'600',fontSize:'30px'}} href="/" className='mt-3'>AKOVA</Navbar.Brand>
+          <Navbar.Brand style={{textDecoration:'none',color:'#0056d2',fontWeight:'600',fontSize:'30px', marginTop:'15px'}} href="/">AKOVA</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className=" justify-content-center p-2">
@@ -68,7 +69,7 @@ export default function BasicExample() {
     return (
       <Navbar bg="light" expand="lg" className='shadow p-2  bg-white rounded sticky-top'>
         <Container>
-        <Navbar.Brand style={{textDecoration:'none',color:'#0056d2',fontWeight:'600',fontSize:'30px'}} href="/" className='mt-3'>AKOVA</Navbar.Brand>
+        <Navbar.Brand style={{textDecoration:'none',color:'#0056d2',fontWeight:'600',fontSize:'30px', marginTop:'15px'}} href="/" >AKOVA</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" >
             {/* <i className={this.state.clicked ? "fas-fa-times" : "fas fa-bars"}>
             </i> */}
@@ -113,7 +114,7 @@ export default function BasicExample() {
     return (
       <Navbar bg="light" expand="lg" className='shadow p-2  bg-white rounded sticky-top' style={{marginBottom:'-20px'}}>
         <Container>
-        <Navbar.Brand style={{textDecoration:'none',color:'#0056d2',fontWeight:'600',fontSize:'30px'}} href="/" className='mt-3'>AKOVA</Navbar.Brand>
+        <Navbar.Brand style={{textDecoration:'none',color:'#0056d2',fontWeight:'600',fontSize:'30px', marginTop:'15px'}} href="/">AKOVA</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className=" justify-content-center p-2">
