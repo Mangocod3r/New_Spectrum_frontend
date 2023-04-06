@@ -5,6 +5,9 @@
   align-items: center;
   flex-direction: column;
 }
+.prob_text{
+  font-size: 20px;
+}
 .home-logo {
   display: flex;
   align-items: center;
@@ -763,6 +766,9 @@ text-align: center;
   margin-bottom: var(--dl-space-space-unit);
 }
 @media(max-width: 991px) {
+  .prob_text{
+    font-size: 12px;
+  }
   .home-content {
     width: 50%;
     margin-right: var(--dl-space-space-unit);
