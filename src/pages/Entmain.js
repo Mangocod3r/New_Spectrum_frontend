@@ -187,12 +187,12 @@ console.log(user)
               {/* <div className="text-right">
                 <span className="badge bg-success">In Progress</span>
               </div> */}
-              <p style={{ fontSize: '20px' }}>
+              <p className="overview_text">
                 {cats.overview}
               </p>
               <div className="display-5 text-center entbut">
                 <Link to={`/entresp/${cats.header}`}>
-                  <button className="my-button bb blue s">
+                  <button className="my-button bb blue s overview_text">
                     SEE YOUR RESPONSES
                   </button>
                 </Link>
@@ -220,7 +220,7 @@ console.log(user)
   else{
   return (
     <>
-      <div className="container-fluid main p-5 "  id="productTable">
+      <div className="container-fluid main mt-5"  id="productTable">
         {/* <Header></Header> */}
         {/* <p className="text-center p-1" style={{ fontSize: '40px', fontWeight: 600 }}>{post.title}</p> */}
         <table className="table-fill">
