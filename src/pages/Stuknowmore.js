@@ -14,7 +14,7 @@ export default function Stuknowmore() {
     console.log(header)
     const [cats, setCats] = useState([
         {
-            overview:"",
+            overview: "",
             image: "",
             description: "",
             start: "",
@@ -34,8 +34,10 @@ export default function Stuknowmore() {
         title: header,
         name: user.name,
         my_idea: "",
-        status:'pending',
-        overview:"",
+        status: 'pending',
+        overview: "",
+        img:"",
+        image:"",
 
     });
 
@@ -57,17 +59,33 @@ export default function Stuknowmore() {
                 [name]: value,
             };
         });
-        if (name === "overview") {
-            setCats((prev) => {
-                return [
-                    {
-                        ...prev[0],
-                        overview: value,
-                    },
-                ];
-            });
-        }
+        // if (name === "overview") {
+        //     setCats((prev) => {
+        //         return [
+        //             {
+        //                 ...prev[0],
+        //                 overview: value,
+        //             },
+        //         ];
+        //     });
+        // }
     };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            setCatsup((prev) => {
+                return {
+                    ...prev,
+                    image: reader.result,
+                    img: reader.result,
+                };
+            });
+        };
+    };
+
 
     const createPost = (e) => {
         console.log(catsup)
@@ -101,11 +119,11 @@ export default function Stuknowmore() {
             <div className="container-fluid main">
                 <div className="col">
                     <div className="row-sm-4 ">
-                        <h1 className="text-center p-4" style={{color:'#0056D2'}}><em>{card.header}</em></h1>
+                        <h1 className="text-center p-2 mb-4" style={{ color: '#0056D2' }}><em>{card.header}</em></h1>
                         <div className="shadow p-3 mb-5 bg-red rounded box">
                             <div className="text-center">
                             </div>
-                            <h3 className='text-center p-2' style={{color:"#0056F1"}}><em>Problem Statement</em> </h3>
+                            <h3 className='text-center p-2' style={{ color: "#0056F1" }}><em>Problem Statement</em> </h3>
                             <p className='prob_text'>
                                 {card.description}
                             </p>
@@ -143,6 +161,7 @@ export default function Stuknowmore() {
                     <Form>
                         <Form.Group controlId="exampleForm.ControlTextarea1">
                             <Form.Control
+                                className='overview_text'
                                 name="my_idea"
                                 size="lg"
                                 as='textarea'
@@ -152,16 +171,24 @@ export default function Stuknowmore() {
                                 style={{ marginBottom: "2rem" }}
                                 placeholder="Enter your idea here..."
                             />
+                            <Form.Control
+                                type="file"
+                                name="image"
+                                onChange={handleImageChange}
+                                accept="image/*"
+                                required
+                            />
+                            <img src={post.img} alt="Preview" className="preview-image" />
                         </Form.Group>
-                    <div className='text-center'>
-                        <button
-                            className='my-button bb blue'
-                            onClick={createPost}
-                            variant="outline-success"   
-                            style={{borderRadius:'2rem'}}
-                        >
-                            SUBMIT
-                        </button>
+                        <div className='text-center'>
+                            <button
+                                className='my-button bb blue'
+                                onClick={createPost}
+                                variant="outline-success"
+                                style={{ borderRadius: '2rem' }}
+                            >
+                                SUBMIT
+                            </button>
                         </div>
                     </Form>
                     <div><p /></div>
