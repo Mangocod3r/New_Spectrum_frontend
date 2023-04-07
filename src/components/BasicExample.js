@@ -78,7 +78,7 @@ export default function BasicExample() {
             <Nav className="s2">
               <Nav.Link href="/" style={{textDecoration:'none'}} className='navi'>Home</Nav.Link>
               <Nav.Link href="/stu_ideas" style={{textDecoration:'none'}}>My ideas</Nav.Link>
-              <NavDropdown title="Projects Category" style={{textDecoration:'none', backgroundColor:'#0085D2', color:'#fff'}} id="basic-nav-dropdown">
+              <NavDropdown title="Projects Category" style={{textDecoration:'none', backgroundColor:'#0056D2', color:'#fff'}} id="basic-nav-dropdown">
                 {/* <NavDropdown.Item href="/stu_vm/MACHINE%20LEARNING">MACHINE LEARNING</NavDropdown.Item>
               <NavDropdown.Item href="/stu_vm/ARTIFICIAL%20INTELLIGENCE">
                 ARTIFICIAL INTELLIGENCE 
