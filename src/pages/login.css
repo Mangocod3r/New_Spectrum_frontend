@@ -39,6 +39,7 @@
   transform: translate(-50%,-50%);
   backdrop-filter: blur( 8px );
   background: rgba(244, 182, 182, 0.04);
+  
   box-shadow: -1px 4px 28px 0px rgba(245, 209, 4, 0.75) ;
   /* box-shadow: -1px 4px 28px 0px var(--dl-color-scheme-temp) ; */
 }
@@ -73,6 +74,10 @@
 }
 .space{
   margin-top: 16px;
+}
+.field .show{
+  width: auto;
+  /* color: #0400ff; */
 }
 /* .show{
   position: absolute;
