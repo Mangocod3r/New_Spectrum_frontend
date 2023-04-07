@@ -6,6 +6,7 @@ const Signup = () => {
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('')
   const [name, setName] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
   const {signup, error, isLoading} = useSignup()
 
@@ -57,10 +58,22 @@ const Signup = () => {
           </div>
           <div className="field space">
             <span className="fa fa-lock" />
-            <input type="password" className="pass-key" onChange={(e) => setPassword(e.target.value)} value={password}
-              required placeholder="Password" />
+            {/* <input type="password" className="pass-key" onChange={(e) => setPassword(e.target.value)} value={password}
+              required placeholder="Password" /> */}
+              <input 
+              type={showPassword ? 'text' : 'password'} 
+              className="pass-key" 
+              onChange={(e) => setPassword(e.target.value)} 
+              value={password}
+              required 
+              placeholder="Password" />
             {/* <span className="show">SHOW</span> */}
-            
+            <span 
+              className="show" 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? 'HIDE' : 'SHOW'}
+            </span>
           </div>
           <div className="field space">
             <span className="fa fa-eye-dropper" />
@@ -74,7 +87,7 @@ const Signup = () => {
           {/* <div className="field">
             <input type="submit" defaultValue="LOGIN" />
           </div> */}
-          <button style={{borderRadius:'2rem'}} disabled={isLoading}>Sign up</button>
+          <button style={{borderRadius:'2rem'}} disabled={isLoading} className="my-button bb blue">Sign up</button>
             {error && <div className="error">{error}</div>}
         </form>
         
