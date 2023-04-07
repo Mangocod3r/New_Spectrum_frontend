@@ -187,6 +187,7 @@ export default function Entresp() {
     {
       title: "",
       my_idea: "",
+      img:"",
       name: "",
       progress:"",
     }
@@ -318,17 +319,20 @@ export default function Entresp() {
               <div className="text-right">
                 <span className={`badge bg-${statusColors[cats.status]}`}>{cats.status}</span>
               </div>
-              <p style={{ fontSize: '20px' }}>
+              <p className="overview_text">
                 {cats.my_idea}
               </p>
-              <p>By {cats.name}</p>
+              <div className="col">
+              <img src={cats.img} alt="" className="img-fluid p-4" style={{ borderRadius: '2.5rem' }} />
+            </div>
+              <p className="overview_text">By {cats.name}</p>
               <div className="d-flex justify-content-end display-5 gap-2">
                 {/* <p>{cats.status}</p> */}
                 <a href="#">
                   {/* <button type="button" className="btn btn-success">
                     APPROVE
                   </button> */}
-                  {cats.status !== "accepted" && (
+                  {cats.status == "pending" && (
                     <button
                     className='my-button bb blue'
                     onClick={() =>createPostAcc(index)}
@@ -341,7 +345,7 @@ export default function Entresp() {
                   )}
                   </a>
                 <a href="#">
-                {cats.status !== "rejected" && (
+                {cats.status == "pending" && (
                     <button
                     className='my-button bb'
                     onClick={() =>createPostRej(index)}
