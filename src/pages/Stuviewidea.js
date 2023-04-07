@@ -14,6 +14,7 @@ export default function Stuviewidea() {
     {
       // overview: "",
       title: "",
+      img:"",
       my_idea: "",
       status: 'pending',
     }
@@ -21,7 +22,7 @@ export default function Stuviewidea() {
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_HOST}/stu_ideas`)
-    // fetch('http://localhost:4000/stu_ideas')
+      // fetch('http://localhost:4000/stu_ideas')
       .then((res) => res.json())
       .then((jsonRes) => setCats(jsonRes));
   }, []);
@@ -45,14 +46,23 @@ export default function Stuviewidea() {
           </p>
         </div> */}
         <div className='shadow p-3 mb-5 bg-red rounded box1'>
-          <div className="text-right">
+          {/* <div className="text-right">
             <span className={`badge bg-${statusColors[cats.status]}`}>{cats.status}</span>
+          </div> */}
+          <div className="text-right">
+            <span className={`badge ${cats.status === 'accepted' ? 'bg-success' : `bg-${statusColors[cats.status]}`}`} style={{ fontSize: cats.status === 'accepted' ? '1.5em' : '1em' }}>
+              {cats.status}
+            </span>
           </div>
-          <h3 className="mb-4" style={{ color: '#0056F2' }}> YOUR IDEA</h3>
 
-          <p style={{ fontSize: '22px' }}>
+          <h3 className="mb-4 " style={{ color: '#0056F2' }}> YOUR IDEA</h3>
+
+          <p className="overview_text">
             {cats.my_idea}
           </p>
+          <div className="col">
+            <img src={cats.img} alt="" className="img-fluid p-4" style={{ borderRadius: '2.5rem' }} />
+          </div>
         </div>
 
       </div>
