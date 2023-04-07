@@ -4,6 +4,7 @@ import { useSignup } from "../hooks/useSignup"
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [role, setRole] = useState('')
   const [name, setName] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -13,7 +14,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    await signup(name, email, password, role)
+    await signup(name, email, password, passwordConfirmation, role)
   }
 
   return (
@@ -75,6 +76,27 @@ const Signup = () => {
               {showPassword ? 'HIDE' : 'SHOW'}
             </span>
           </div>
+
+          <div className="field space">
+            <span className="fa fa-lock" />
+            {/* <input type="password" className="pass-key" onChange={(e) => setPassword(e.target.value)} value={password}
+              required placeholder="Password" /> */}
+              <input 
+              type={showPassword ? 'text' : 'password'} 
+              className="pass-key" 
+              onChange={(e) => setPasswordConfirmation(e.target.value)} 
+              value={passwordConfirmation}
+              required 
+              placeholder="Confirm Password" />
+            {/* <span className="show">SHOW</span> */}
+            <span 
+              className="show" 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? 'HIDE' : 'SHOW'}
+            </span>
+          </div>
+
           <div className="field space">
             <span className="fa fa-eye-dropper" />
             <input type="role"  onChange={(e) => setRole(e.target.value)} value={role}
