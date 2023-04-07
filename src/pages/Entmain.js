@@ -192,7 +192,7 @@ console.log(user)
               </p>
               <div className="display-5 text-center entbut">
                 <Link to={`/entresp/${cats.header}`}>
-                  <button className="my-button bb blue s overview_text">
+                  <button className="my-button bb blue s overview_button">
                     SEE YOUR RESPONSES
                   </button>
                 </Link>
