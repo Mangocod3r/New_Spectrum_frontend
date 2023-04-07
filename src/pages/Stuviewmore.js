@@ -36,7 +36,7 @@ export default function Stuviewmore() {
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_HOST}/posts/${title}`)
-    // fetch(`http://localhost:4000/posts/${title}`)
+      // fetch(`http://localhost:4000/posts/${title}`)
       .then((res) => res.json())
       .then((jsonRes) => setCats(jsonRes));
   }, []);
@@ -69,8 +69,8 @@ export default function Stuviewmore() {
             transition={{ delay: 1.5, duration: 1.5 }}
           >
             <div className="col-lg-6">
-              <h2 className="font-weight-bold text-center p-3 mt-5" style={{color:'#0056D2'}}><em>{card.header}</em></h2>
-              <p className=" text-center lh-base ml-4" style={{ fontSize: '23px' }}>
+              <h2 className="font-weight-bold text-center p-3 mt-5" style={{ color: '#0056D2' }}><em>{card.header}</em></h2>
+              <p className=" text-center lh-base ml-4 overview_text">
                 {card.text}
               </p>
               {/* <h4 className="ml-4">{card.sub}</h4>
@@ -82,8 +82,13 @@ export default function Stuviewmore() {
                   {card.p2}
                 </li>
               </ul> */}
-              <div className="display-5 text-center">
-                <div className=" p-4 text-center">
+              
+            </div>
+            <div className="col">
+              <img src={card.img} alt="" className="img-fluid p-4" style={{ borderRadius: '2.5rem' }} />
+            </div>
+            <div className="display-5 text-center">
+                <div className=" p-3 text-center">
                   <Link to={`/stu_km/${card.header}`} style={{ textDecoration: 'none' }}>
                     {/* <motion.button className="bb" style={{height:'60px'}}
                     variants = {buttonVariants} 
@@ -91,17 +96,16 @@ export default function Stuviewmore() {
                     >
                        {card.p3}
                     </motion.button> */}
-                    <button className="my-button bb blue" style={{ height: '60px' }}>
+                    <button className="my-button bb blue overview_button">
                       KNOW MORE
                     </button>
                   </Link>
                 </div>
               </div>
-            </div>
-            <div className="col">
-              <img src={card.img} alt="" className="img-fluid p-4" style={{ borderRadius: '2.5rem' }} />
-            </div>
           </motion.div>
+
+
+
         </td>
       </tr>
     );
@@ -115,7 +119,7 @@ export default function Stuviewmore() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <p className="text-center mb-5" style={{ fontSize: '40px', fontWeight: 600 , color:'#0056D2'}}>{title}</p>
+        <h1 className="text-center mb-5" style={{ fontWeight: 600, color: '#0056D2' }}>{title}</h1>
         {/* <div className="box w-75"> */}
         <Form>
           <InputGroup className='my-3 w-75 m-4'>
