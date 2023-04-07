@@ -334,7 +334,7 @@ export default function Entresp() {
                   </button> */}
                   {cats.status == "pending" && (
                     <button
-                    className='my-button bb blue'
+                    className='my-button bb blue overview_button'
                     onClick={() =>createPostAcc(index)}
                     // value={cats.progress}
                     variant="outline-success"
@@ -347,7 +347,7 @@ export default function Entresp() {
                 <a href="#">
                 {cats.status == "pending" && (
                     <button
-                    className='my-button bb'
+                    className='my-button bb overview_button'
                     onClick={() =>createPostRej(index)}
                     // value={cats.progress}
                     variant="outline-success"
