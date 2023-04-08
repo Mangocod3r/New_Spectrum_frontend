@@ -46,8 +46,15 @@
     font-style: italic;
 
 }
+@media screen and (max-width: 991px) and (min-width: 769px) {
+  .navbar-brand {
+    display: none;
+  }
+}
+
 @media(max-width: 992px){
-  .navbar-nav{
+  .navbar-brand{
+    /* display: none; */
     /* flex-direction: row !important; */
   }
   .mt-3{
