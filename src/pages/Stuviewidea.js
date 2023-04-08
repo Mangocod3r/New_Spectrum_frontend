@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function Stuviewidea() {
   const { title } = useParams()
+  const {user} = useAuthContext()
 
   const statusColors = {
     accepted: 'success',
@@ -31,7 +33,10 @@ export default function Stuviewidea() {
     console.log(cats);
   }, [cats]);
 
-  const post = cats.filter(post => post.title === title)
+  // const post = cats.filter(post => post.title === title)
+  // console.log(user.name)
+  const post = cats.filter(post => post.title === title && post.name === user.name);
+  console.log(post)
 
   const renderCard = (cats, index) => {
     return (
