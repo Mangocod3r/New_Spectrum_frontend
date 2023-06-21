@@ -13,7 +13,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    // console.log(name,email,password,role)
     await signup(name, email, password, passwordConfirmation, role)
   }
 
@@ -87,7 +87,7 @@ const Signup = () => {
               onChange={(e) => setPasswordConfirmation(e.target.value)} 
               value={passwordConfirmation}
               required 
-              placeholder="Confirm Password" />
+              placeholder="passwordConfirmation" />
             {/* <span className="show">SHOW</span> */}
             <span 
               className="show" 
