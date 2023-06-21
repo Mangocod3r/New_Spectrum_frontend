@@ -13,7 +13,7 @@ export const useLogin = () => {
 
     setIsLoading(true)
     setError(null)
-//     fetch(`${process.env.REACT_APP_API_HOST}/posts/${header}`)
+    // fetch(`${process.env.REACT_APP_API_HOST}/posts/${header}`)
 
     const response = await fetch(`${process.env.REACT_APP_API_HOST}/api/user/login`, {
       method: 'POST',
