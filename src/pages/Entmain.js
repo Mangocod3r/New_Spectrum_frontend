@@ -221,6 +221,11 @@ console.log(user)
   return (
     <>
       <div className="container-fluid main mt-5"  id="productTable">
+        <div class="container d-flex justify-content-end">
+          <Link to='/ent_accinv'>
+             Accepted Investments
+          </Link>
+        </div>
         {/* <Header></Header> */}
         {/* <p className="text-center p-1" style={{ fontSize: '40px', fontWeight: 600 }}>{post.title}</p> */}
         <table className="table-fill">
