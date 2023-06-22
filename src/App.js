@@ -143,8 +143,8 @@ import Entupload from './pages/Entupload';
 import Entprop from './pages/Entprop';
 import Notfound from './pages/Notfound';
 import Home from './pages/Home';
-import ThemeProvider from './pages/ThemeProvider';
-import { ColorModeProvider } from './pages/ColorModeContext';
+// import ThemeProvider from './pages/ThemeProvider';
+// import { ColorModeProvider } from './pages/ColorModeContext';
 import './style.css';
 import Angelmain from './pages/Angelmain';
 import Angelinvreq from './pages/Angel_inv_req';
@@ -155,14 +155,14 @@ import Entaccinv from './pages/Ent_accinv';
 import { useLocation } from 'react-router-dom';
 
 function App() {
-  const [darkMode, setdarkMode] = useState(false);
+  // const [darkMode, setdarkMode] = useState(false);
   const { user } = useAuthContext();
 
   return (
     <BrowserRouter>
       <ThemeProvider>
         <ColorModeProvider>
-          <BasicExample colorMode={darkMode}></BasicExample>
+          <BasicExample ></BasicExample>
           <Routes>
             <Route
               path="/"
