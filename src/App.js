@@ -168,7 +168,7 @@ function App() {
               path="/"
               element={
                 user ? (
-                  user.role === 'student' ? (
+                  user.role === 'Student' ? (
                     <Stumain />
                   ) : user.role === 'Entreprenuer' ? (
                     <Entmain />
@@ -232,7 +232,7 @@ function App() {
               element={
                 !user ? (
                   <Login />
-                ) : user.role === 'student' ? (
+                ) : user.role === 'Student' ? (
                   <Stumain />
                 ) : (
                   <Notfound />
@@ -244,7 +244,7 @@ function App() {
               element={
                 !user ? (
                   <Login />
-                ) : user.role === 'student' ? (
+                ) : user.role === 'Student' ? (
                   <Stuviewmore />
                 ) : (
                   <Notfound />
@@ -256,7 +256,7 @@ function App() {
               element={
                 !user ? (
                   <Login />
-                ) : user.role === 'student' ? (
+                ) : user.role === 'Student' ? (
                   <Stuknowmore />
                 ) : (
                   <Notfound />
@@ -268,7 +268,7 @@ function App() {
               element={
                 !user ? (
                   <Login />
-                ) : user.role === 'student' ? (
+                ) : user.role === 'Student' ? (
                   <Stuideas />
                 ) : (
                   <Notfound />
@@ -280,7 +280,7 @@ function App() {
               element={
                 !user ? (
                   <Login />
-                ) : user.role === 'student' ? (
+                ) : user.role === 'Student' ? (
                   <Stuviewidea />
                 ) : (
                   <Notfound />
