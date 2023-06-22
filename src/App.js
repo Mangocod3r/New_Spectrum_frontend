@@ -160,8 +160,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        <ColorModeProvider>
+      {/* <ThemeProvider> */}
+        {/* <ColorModeProvider> */}
           <BasicExample ></BasicExample>
           <Routes>
             <Route
@@ -369,8 +369,8 @@ function App() {
             />
             <Route path="*" element={<Notfound />} />
           </Routes>
-        </ColorModeProvider>
-      </ThemeProvider>
+        {/* </ColorModeProvider> */}
+      {/* // </ThemeProvider> */}
     </BrowserRouter>
   );
 }
