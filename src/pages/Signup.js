@@ -99,8 +99,14 @@ const Signup = () => {
 
           <div className="field space">
             <span className="fa fa-eye-dropper" />
-            <input type="role"  onChange={(e) => setRole(e.target.value)} value={role}
-              required placeholder="Role:(Student/ Entreprenuer/ Investor)" />
+              <select value={role} onChange={(e) => setRole(e.target.value)} required>
+              <option value="">Select Role</option>
+              <option value="Student">Student</option>
+              <option value="Entrepreneur">Entrepreneur</option>
+              <option value="Investor">Investor</option>
+            </select>
+            // <input type="role"  onChange={(e) => setRole(e.target.value)} value={role}
+            //   required placeholder="Role:(Student/ Entreprenuer/ Investor)" />
             
           </div>
           <div className="pass">
