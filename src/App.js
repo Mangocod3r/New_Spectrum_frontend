@@ -24,7 +24,6 @@ import Angelinvreq from './pages/investor/Angel_inv_req';
 import Metrics from './pages/investor/Metrics';
 import Mentor from './pages/investor/Mentor';
 import Pitchevent from './pages/investor/Pitch_event';
-import Entaccinv from './pages/Ent_accinv';
 
 import Notfound from './pages/Notfound';
 import Home from './pages/Home';
