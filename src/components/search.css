@@ -1,0 +1,55 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: black;
+}
+.c1{
+	position: absolute;
+	left: 48%;
+	top: 35%;
+	transform: translate(-50%, -50%);
+	padding: 10px;
+}
+.inpux{
+	outline: none;
+	box-sizing: border-box;
+	height: 60px;
+	width: 0px;
+	padding: 0 20px;
+	color: black;
+	border-radius: 50px;
+	font-size: 20px;
+	border: 1px solid #D50000;
+	transition: all .7s ease; 
+}
+::placeholder{
+	color: grey;
+}
+.btnn{
+	position: absolute;
+	right: 0px;
+    top: 0px;
+	width: 80px;
+	height: 80px;
+	background: #D50000;
+	line-height: 80px;
+	border-radius: 50%;
+	text-align: center;
+	cursor: pointer;
+	transition: .5s;
+}
+.btnn i{
+	font-size: 25px;
+	color: white;
+	line-height: 80px;
+	transition: all .7s ease;
+}
+.c1:hover input{
+	width: 350px;
+}
+.c1:hover i{
+	transform: rotate(-360deg);
+}
+.btnn:hover{
+	background: #cc0000;
+}

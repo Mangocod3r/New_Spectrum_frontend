@@ -1,0 +1,69 @@
+.card-card {
+  flex: 0 0 auto;
+  width: 60%;
+  display: flex;
+  padding: 20px;
+  max-width: 500px;
+  min-height: 480px;
+  align-items: center;
+  border-radius: 36px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: flex-end;
+  /* background-image: url("https://media.istockphoto.com/id/1365436662/photo/successful-partnership.jpg?s=612x612&w=0&k=20&c=B1xspe9Q5WMsLc7Hc9clR8MWUL4bsK1MfUdDNVNR2Xg="); */
+}
+.card-info {
+  /* backdrop-filter: blur(5px); */
+  flex: 0 0 auto;
+  background-color: rgba(255, 255, 255, 0.5) !important; /* use this for a transparent background */
+
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--dl-space-space-unit);
+  padding-left: var(--dl-space-space-twounits);
+  border-radius: 20px;
+  padding-right: var(--dl-space-space-twounits);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-unit);
+  background-color: var(--dl-color-scheme-white);
+}
+.card-text {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Urbanist;
+  color: #0056D2;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.card-text1 {
+  font-weight: 500;
+  line-height: 1.1;
+  white-space: pre-line;
+}
+
+.card-root-class-name {
+  background-size: cover;
+  background-image: url("https://media.istockphoto.com/id/1365436662/photo/successful-partnership.jpg?s=612x612&w=0&k=20&c=B1xspe9Q5WMsLc7Hc9clR8MWUL4bsK1MfUdDNVNR2Xg=");
+
+  /* background-image: url('/frontend/public/playground_assets/'); */
+  /* background-image: url("public/playground_assets/rectangle%2035%20%5B1%5D-200h.png"); */
+}
+
+.card-root-class-name2 {
+  background-size: cover;
+  background-image: url("https://media.istockphoto.com/id/1160716260/photo/with-my-expertise-ill-have-this-sorted-in-no-time.jpg?s=612x612&w=0&k=20&c=sZeYQM4pRpzshUeTpTPQw07M6rdOC8PFrAJ8RuCCHNs=");
+
+  /* background-image: url('/frontend/public/playground_assets/'); */
+  /* background-image: url("public/playground_assets/rectangle%2035%20%5B1%5D-200h.png"); */
+}
+@media(max-width: 767px) {
+  .card-card {
+    width: 150%;
+    /* background-size: 180%; */
+    /* background-position: 0%; */
+    /* scale: 0.5; */
+  }
+  
+}
