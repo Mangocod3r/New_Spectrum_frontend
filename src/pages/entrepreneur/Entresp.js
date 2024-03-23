@@ -164,10 +164,8 @@
 
 import { useState, useEffect } from "react";
 import { Link, useParams } from 'react-router-dom';
-import { Form, Control } from "react-bootstrap";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import fetchWithAuth from "../api/fetchWithAuth";
+import fetchWithAuth from "../../api/fetchWithAuth";
 // import { useAuthContext } from '../hooks/useAuthContext'
 
 export default function Entresp() {

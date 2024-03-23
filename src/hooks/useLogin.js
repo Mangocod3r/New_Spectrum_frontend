@@ -1,8 +1,6 @@
 import { useDeferredValue, useState } from 'react'
 import { useAuthContext } from './useAuthContext'
 import {useNavigate} from 'react-router-dom'
-import Stumain from '../pages/Stumain'
-import Entmain from '../pages/Entmain'
 
 export const useLogin = () => {
   const [error, setError] = useState(null)

@@ -87,10 +87,10 @@ import React, { useEffect } from "react";
 import { Form, Control, FormGroup } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
-import { useAuthContext } from '../hooks/useAuthContext'
+import { useAuthContext } from '../../hooks/useAuthContext'
 import { useNavigate } from "react-router-dom";
 import './upload.css'
-import fetchWithAuth from "../api/fetchWithAuth";
+import fetchWithAuth from "../../api/fetchWithAuth";
 
 
 function CreatePost() {

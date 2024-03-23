@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import fetchWithAuth from '../api/fetchWithAuth'
+import fetchWithAuth from '../../api/fetchWithAuth'
 export default function Angelmain() {
 //   const [investments, setInvestments] = useState([]);
 

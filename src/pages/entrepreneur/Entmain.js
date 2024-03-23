@@ -140,8 +140,8 @@
 
 import { useState, useEffect } from "react";
 import { Link, useParams } from 'react-router-dom';
-import { useAuthContext } from '../hooks/useAuthContext'
-import fetchWithAuth from "../api/fetchWithAuth";
+import { useAuthContext } from '../../hooks/useAuthContext'
+import fetchWithAuth from "../../api/fetchWithAuth";
 // import './upload.css'
 export default function Entmain() {
   // const { name } = useParams()

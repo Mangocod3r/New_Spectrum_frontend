@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Form, FormGroup, Modal, Button } from "react-bootstrap";
 import axios from "axios";
-import { useAuthContext } from '../hooks/useAuthContext'
+import { useAuthContext } from '../../hooks/useAuthContext'
 // import { useNavigate } from "react-router-dom";
 import './upload.css'
-import fetchWithAuth from '../api/fetchWithAuth';
+import fetchWithAuth from '../../api/fetchWithAuth';
 
 export default function Entprop() {
   const { user } = useAuthContext()

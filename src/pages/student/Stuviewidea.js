@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
-import fetchWithAuth from '../api/fetchWithAuth'
+import { useAuthContext } from "../../hooks/useAuthContext";
+import fetchWithAuth from '../../api/fetchWithAuth'
 export default function Stuviewidea() {
   const { title } = useParams()
   const {user} = useAuthContext()

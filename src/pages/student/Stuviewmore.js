@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
-// import Header from '../components/header_s'
-import Footer from '../components/footer'
 import { useParams } from "react-router-dom";
 import InputGroup from "react-bootstrap/InputGroup"
 import Form from 'react-bootstrap/Form';
-// import '../components/btn_grad.css'
-// import '../components/btn_peach.css'
-import '../components/button_nepal.css';
+import '../../components/button_nepal.css';
 import { Link } from "react-router-dom";
-import '../components/search.css';
-import { Button } from "react-bootstrap";
+import '../../components/search.css';
 import { motion } from 'framer-motion';
-import fetchWithAuth from "../api/fetchWithAuth";
+import fetchWithAuth from "../../api/fetchWithAuth";
 
 
 export default function Stuviewmore() {

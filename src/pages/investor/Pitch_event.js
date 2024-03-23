@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import fetchWithAuth from '../api/fetchWithAuth'
+import fetchWithAuth from '../../api/fetchWithAuth'
 export default function Pitch_event() {
     const [events, setEvents] = useState([
         {

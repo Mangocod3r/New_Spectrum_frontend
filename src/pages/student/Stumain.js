@@ -1,10 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel'
-import Header from '../components/header_s'
-import Footer from '../components/footer'
-import BasicExample from '../components/BasicExample'
+import Footer from '../../components/footer'
 import { useContext, useEffect, useState } from "react"
 import { Link } from 'react-router-dom';
-import fetchWithAuth from '../api/fetchWithAuth'
+import fetchWithAuth from '../../api/fetchWithAuth'
 export default function Stumain() {
     // const [data, setData] = useState(null);
     // const userData = JSON.parse(localStorage.getItem('user'));

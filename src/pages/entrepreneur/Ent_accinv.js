@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { AuthContext } from '../context/AuthContext';
-import { useAuthContext } from '../hooks/useAuthContext';
-import fetchWithAuth from '../api/fetchWithAuth';
+import { useAuthContext } from '../../hooks/useAuthContext';
+import fetchWithAuth from '../../api/fetchWithAuth';
 export default function Angelmain() {
 //   const [investments, setInvestments] = useState([]);
 

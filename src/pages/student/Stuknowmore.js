@@ -1,11 +1,10 @@
-import Footer from '../components/footer'
 import { Form, Button } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from '../hooks/useAuthContext'
-import fetchWithAuth from '../api/fetchWithAuth';
+import { useAuthContext } from '../../hooks/useAuthContext'
+import fetchWithAuth from '../../api/fetchWithAuth';
 
 export default function Stuknowmore() {
     const navigate = useNavigate();
