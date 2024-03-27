@@ -1,92 +1,11 @@
-// import { useEffect }from 'react'
-// import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
-// import { useAuthContext } from "../hooks/useAuthContext"
-
-// // components
-// import WorkoutDetails from '../components/WorkoutDetails'
-// import WorkoutForm from '../components/WorkoutForm'
-
-// const Home = () => {
-//   const {workouts, dispatch} = useWorkoutsContext()
-//   const {user} = useAuthContext()
-
-//   useEffect(() => {
-//     const fetchWorkouts = async () => {
-//       const response = await fetch('/api/workouts', {
-//         headers: {'Authorization': `Bearer ${user.token}`},
-//       })
-//       const json = await response.json()
-
-//       if (response.ok) {
-//         dispatch({type: 'SET_WORKOUTS', payload: json})
-//       }
-//     }
-
-//     if (user) {
-//       fetchWorkouts()
-//     }
-//   }, [dispatch, user])
-
-//   return (
-//     <div className="home">
-//       <div className="workouts">
-//         {workouts && workouts.map((workout) => (
-//           <WorkoutDetails key={workout._id} workout={workout} />
-//         ))}
-//       </div>
-//       <WorkoutForm />
-//     </div>
-//   )
-// }
-
-// export default Home
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// import { Helmet } from 'react-helmet'
-// import { useState } from 'react'
 import Card from '../components/card'
 import './home.css'
 import { motion } from 'framer-motion'
 
 import { useState, useEffect, useRef } from 'react';
-
-// import { useState, useEffect } from 'react';
-
-// function TypingText(props) {
-//   const [index, setIndex] = useState(0);
-//   const [isDeleting, setIsDeleting] = useState(false);
-
-//   useEffect(() => {
-//     const words = props.words;
-//     const current = index % words.length;
-//     const currentWord = words[current];
-
-//     if (isDeleting) {
-//       props.setText(currentWord.substring(0, index - current * currentWord.length));
-//     } else {
-//       props.setText(currentWord.substring(0, index - current * currentWord.length + 1));
-//     }
-
-//     const typingSpeed = props.typingSpeed || 150;
-
-//     const timer = setTimeout(() => {
-//       if (!isDeleting && index >= currentWord.length * (current + 1)) {
-//         setIsDeleting(true);
-//       } else if (isDeleting && index <= currentWord.length * current) {
-//         setIsDeleting(false);
-//         setIndex(prevIndex => prevIndex + 1);
-//       }
-
-//       setIndex(prevIndex => prevIndex + (isDeleting ? -1 : 1));
-//     }, typingSpeed);
-
-//     return () => clearTimeout(timer);
-//   }, [index, isDeleting, props]);
-
-//   return null;
-// }
 
 import Typed from 'typed.js';
 
@@ -122,11 +41,6 @@ const TypingText = (props) => {
 
 const Home = (props) => {
 
-  // const [text, setText] = useState('');
-  // // const words = ['Empowering Students and Entrepreneurs to Innovate Together'];
-  // const words = [' Innovate Collaborate Succeed'];
-  // const words = ['Collaborate', 'Succeed', 'Innovate'];
-
   const [questions, setQuestions] = useState([
     {
       id: 1,
@@ -157,9 +71,6 @@ const Home = (props) => {
     setQuestions(newQuestions);
   };
 
-  // const showAnswer = (index) => {
-  //   toggleAnswer(index);
-  // };
   const showAnswer = (index) => {
     const newQuestions = [...questions];
     newQuestions[index].isOpen = !newQuestions[index].isOpen;
@@ -184,53 +95,27 @@ const Home = (props) => {
     );
   };
 
-
   return (
     <motion.div className="home-container" style={{ marginTop: '-20px' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5, duration: 0.5 }}
     >
-      {/* <Helmet> */}
+      {}
       <title>Up Start Template</title>
       <meta property="og:title" content="Up Start Template" />
-      {/* </Helmet> */}
-      {/* <div className="navbar-container"> */}
-      {/* <div className="max-width">
-          <div className="home-logo">
-            <img
-              alt="image"
-              src="/playground_assets/istockphoto-1201430849-612x612-200h.jpg"
-              className="home-image"
-            />
-            <span className="brandName">
-              <span className="home-text01">AK</span>
-              <span>OVA</span>
-            </span>
-          </div>
-          <div className="home-links">
-            <span className="home-text03 navbarLink">How it works</span>
-            <span className="home-text04 navbarLink">Features</span>
-            <span className="home-text05 navbarLink">Blog</span>
-            <span className="home-text06 navbarLink">Pricing</span>
-            <button className="button-secondary button">Log in</button>
-            <button className="button button-primary">Get started</button>
-          </div>
-          <div className="home-burger-menu navbar-burger-menu">
-            <svg viewBox="0 0 1024 1024" className="home-icon">
-              <path d="M128 256h768v86h-768v-86zM128 554v-84h768v84h-768zM128 768v-86h768v86h-768z"></path>
-            </svg>
-          </div>
-        </div> */}
-      {/* </div> */}
+      {}
+      {}
+      {}
+      {}
       <div className="hero-container section-container">
         <div className="home-max-width1 max-width">
           <div className="home-content">
             <h1 className="home-title">
               <span>Empowering Students and Entrepreneurs to  </span>
               <br></br>
-              {/* <TypingText words={words} setText={setText} /> */}
-              {/* <span className='home-text10'>{text}</span> */}
+              {}
+              {}
               <TypingText
                 words={['Collaborate', 'Innovate', 'Succeed']}
                 typingSpeed={50}
@@ -254,14 +139,10 @@ const Home = (props) => {
             <img
               alt="image"
               src='https://media.istockphoto.com/id/1349142218/photo/new-startup-launch-business-ideas-creativity.jpg?s=612x612&w=0&k=20&c=rmW-MQo3rV9xpFZHAC31c7S-do0w-F4Ab4BUQl8Vr40='
-              // src="/playground_assets/istockphoto-1349142218-612x612-600w.jpg"
+
               className="home-hero-image"
             />
-            {/* <img
-              alt="image"
-              src="/playground_assets/union-400w.png"
-              className="home-graphic-top"
-            /> */}
+            {}
             <img
               alt="image"
               src="/playground_assets/group18-1200w.png"
@@ -275,7 +156,7 @@ const Home = (props) => {
           <div className="home-image3">
             <img
               alt="image"
-              src="https://media.istockphoto.com/id/1287030300/photo/drop-shipping-business-owner-confirming-the-order-on-phone.jpg?s=612x612&w=0&k=20&c=XfaGtdTFUZofCWdOC70kiJ_DHls-a9VIdAwBdctBvoQ="            // src="/playground_assets/istockphoto-1301397300-612x612-1200w.jpg"
+              src="https://media.istockphoto.com/id/1287030300/photo/drop-shipping-business-owner-confirming-the-order-on-phone.jpg?s=612x612&w=0&k=20&c=XfaGtdTFUZofCWdOC70kiJ_DHls-a9VIdAwBdctBvoQ="            
               className="home-hero-image1"
             />
           </div>
@@ -288,8 +169,8 @@ const Home = (props) => {
             <span className="home-text11 beforeHeading">ENTREPRENUER</span>
             <h1 className="home-text12">
 
-              {/* <span>Heading 1</span> */}
-              {/* <br></br> */}
+              {}
+              {}
             </h1>
             <span className="home-text15">
               Are you looking for the next big thing? Our platform offers you a unique opportunity to discover innovative projects submitted by talented students. Upload your projects, connect with budding entrepreneurs and potentially invest in the next game-changing idea. Take the first step towards creating a successful future, today
@@ -312,9 +193,9 @@ const Home = (props) => {
           <div className="home-content2">
             <span className="home-text16 beforeHeading">STUDENT</span>
             <h1 className="home-text17">
-              {/* <span className="home-text18">Heading 1</span> */}
-              {/* <br></br> */}
-              {/* <span className="home-text20">Heading 2</span> */}
+              {}
+              {}
+              {}
             </h1>
             <span className="home-text21">
               Unlock your potential and take the first step towards your entrepreneurial journey! Join our platform designed exclusively for students, where you can explore innovative projects, submit your ideas, and learn from experienced entrepreneurs. Collaborate with like-minded individuals, gain valuable insights and transform your ideas into reality!
@@ -328,7 +209,7 @@ const Home = (props) => {
           <img
             alt="image"
             src="https://media.istockphoto.com/id/1301397300/photo/portrait-of-young-woman-stock-photo.jpg?s=612x612&w=0&k=20&c=Xvgo-k58_woBTuQaRNZ4JXP2SQsw_RSbrlSbt7XbQlU="
-            // src="/playground_assets/istockphoto-1301397300-612x612-1200w.jpg"
+
             className="home-hero-image2"
           />
           <div className="home-image4"></div>
@@ -340,12 +221,12 @@ const Home = (props) => {
             <img
               alt="image"
               src="https://media.istockphoto.com/id/841390884/photo/door-opened-light.jpg?s=612x612&w=0&k=20&c=tmL9D6eo2yofXD7Pwcp2v73OFMBa4IsoyVTojt1dQTE="
-              // src="/playground_assets/istockphoto-841390884-612x612-1200w.jpg"
+
               className="home-hero-image3"
             />
           </div>
           <div className="home-content3">
-            {/* <span className="home-text22 beforeHeadings">get started</span> */}
+            {}
             <h1 className="home-text23">Join today this innovation portal </h1>
             <div className="home-step">
               <div className="home-number">
@@ -390,8 +271,7 @@ const Home = (props) => {
         <div className="home-max-width5 max-width">
           <span className="home-text30 beforeHeading">Join us now!</span>
           <h1 className="home-text31">
-            {/* <span>No matter what you do,</span>
-            <br></br> */}
+            {}
             <span>Take your skills to new heights with Akova's innovation community</span>
           </h1>
 
@@ -476,7 +356,7 @@ const Home = (props) => {
               className="home-image6"
             />
           </div>
-          {/* {questions.map(renderCard)} */}
+          {}
           <div className="home-banner">
             <span className="home-text46 beforeHeading3">get started</span>
             <h1 className="home-text47">
@@ -503,11 +383,7 @@ const Home = (props) => {
                 />
               </span>
             </span>
-            {/* <div className="home-btns">
-              <button className="home-button6 button button-gradient">
-                Get started
-              </button>
-            </div> */}
+            {}
           </div>
         </div>
       </div>

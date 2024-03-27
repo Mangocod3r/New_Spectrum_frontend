@@ -61,19 +61,18 @@ export default function Entresp() {
       const response = await fetchWithAuth(`${process.env.REACT_APP_API_HOST}/api/investment-requests/${id}`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json' // Make sure to set the Content-Type header
+          'Content-Type': 'application/json' 
         },
         body: JSON.stringify(updatedData)
       });
-      // const response = await axios.put(`${process.env.REACT_APP_API_HOST}/stu_ideas/${id}`, updatedData);
+
       const updatedIdea = await response.json();
       console.log(updatedIdea);
       setStatus("accepted");
       const newCats = [...cats]; 
       newCats[index] = updatedIdea; 
       setCats(newCats); 
-      // If you want to update the state of your component with the new data:
-      // setCats([...cats.slice(0, index), updatedIdea, ...cats.slice(index + 1)]);
+
     } catch (err) {
       console.log(err);
     }
@@ -89,17 +88,15 @@ export default function Entresp() {
       const response = await fetchWithAuth(`${process.env.REACT_APP_API_HOST}/api/investment-requests/${id}`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json' // Make sure to set the Content-Type header
+          'Content-Type': 'application/json' 
         },
         body: JSON.stringify(updatedData)
       });
-      // const response = await axios.put(`${process.env.REACT_APP_API_HOST}/stu_ideas/${id}`, updatedData);
+
       const updatedIdea = await response.json();
       console.log(updatedIdea);
       setStatus("rejected");
 
-      // If you want to update the state of your component with the new data:
-      // setCats([...cats.slice(0, index), updatedIdea, ...cats.slice(index + 1)]);
     } catch (err) {
       console.log(err);
     }

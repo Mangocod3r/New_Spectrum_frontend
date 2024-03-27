@@ -1,29 +1,15 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Modal, Button } from "react-bootstrap";
-import axios from "axios";
+import { Form, FormGroup } from "react-bootstrap";
 import { useAuthContext } from '../../hooks/useAuthContext'
-// import { useNavigate } from "react-router-dom";
+
 import './upload.css'
 import fetchWithAuth from '../../api/fetchWithAuth';
 
 export default function Entprop() {
   const { user } = useAuthContext()
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [title, setTitle] = useState('');
-  // const [proposal, setProposal] = useState('');
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // Do something with the form data
-  //   console.log(name, email, proposal);
-  // };
   const [showModal, setShowModal] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
 
   const handleShowModal = () => {
     setIsSubmitted(true);
@@ -31,13 +17,13 @@ export default function Entprop() {
   };
 
   const [proposal, setProposal] = useState({
-    // name: "",
+
     email: "",
     projectName: "",
     message: "",
     amount: "",
     name: user.name,
-    // name:"",
+
   });
 
   const handleChange = (e) => {
@@ -50,34 +36,19 @@ export default function Entprop() {
     });
   };
 
-  // const createproposal = (e) => {
-  //   e.preventDefault();
-
-  //   axios
-  //     .post(`${process.env.REACT_APP_API_HOST}/prop`, proposal)
-  //     .then((res) => {
-  //       console.log(res);
-  //       handleShowModal();
-  //     })
-  //     .catch((err) => console.log(err));
-
-  //     setIsSubmitted(true);
-  //   // navigate("proposals");
-  // };
-
   const createproposal = async (e) => { 
     e.preventDefault();
 
   const proposaldata = {
     ...proposal,
-    // Add any additional fields you need for the request
+
   };
 
   try {
     const response = await fetchWithAuth(`${process.env.REACT_APP_API_HOST}/prop`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json' // Make sure to set the Content-Type header
+        'Content-Type': 'application/json' 
       },
       body: JSON.stringify(proposaldata)
     });
@@ -89,7 +60,6 @@ export default function Entprop() {
   }
   setIsSubmitted(true);
 };
-// console.log(post);
 
   const textRef = React.useRef();
   const [value, setValue] = React.useState();
@@ -158,25 +128,8 @@ export default function Entprop() {
                 <label for="">Amount</label>
               </div>
               </div>
-              {/* <div className="form-row">
-              <div className="input-data">
-                <Form.Control type="text" required name="start" value={proposal.start} onChange={handleChange} />
-                <div className="underline"></div>
-                <label for="">Start Date</label>
-              </div>
-              <div className="input-data">
-                <Form.Control type="text" required name="end" value={proposal.end} onChange={handleChange} />
-                <div className="underline"></div>
-                <label for="">End Date </label>
-              </div>
-            </div> */}
-              {/* <div className="form-row">
-              <div className="input-data">
-                <Form.Control type="text" required name="overview" value={proposal.overview} onChange={handleChange} />
-                <div className="underline"></div>
-                <label for="">Overview </label>
-              </div>
-            </div> */}
+              {}
+              {}
 
               <div className="form-row">
                 <div className="input-data textarea" >
@@ -188,84 +141,35 @@ export default function Entprop() {
                   <label for="">Proposal</label>
                   <br />
 
-                  {/* <Form.Control
-                type="file"
-                name="image"
-                onChange={handleImageChange}
-                accept="image/*"
-                required
-              />
-              <img src={proposal.img} alt="Preview" className="preview-image" /> */}
+                  {}
 
                   <div className="form-row submit-btn">
                     <div className="input-data">
                       <div className=" inner"></div>
                       <Form.Control type="submit" value="submit" onClick={createproposal} />
-                      {/* 
-                    <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Proposal Submitted</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Thank you for submitting the proposal</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal> */}
-
+                      {}
 
                     </div>
                   </div>
 
-
                 </div>
               </div>
 
-              {/* <div className="form-row"> */}
-              {/* <div className="input-data textarea" >
-              <textarea ref={textRef} required onChange={onChnage} name="text" value={proposal.text}>
+              {}
+              {}
 
-              </textarea>
-              <br />
-              <div className="underline"></div>
-              <label for="">More Text</label>
-              <br /> */}
+              {}
+              {}
 
-
-              {/* <div className="form-row submit-btn">
-                <div className="input-data">
-                  <div className="inner"></div>
-                  <Form.Control type="submit" value="submit" onClick={createproposal} />
-                </div>
-              </div>
-
-            </div> */}
-              {/* </div> */}
-
-              {/* </div> */}
+              {}
             </FormGroup>
           </Form>
 
-
-          {/* Add the modal component */}
-          {/* <Modal show={showModal} onHide={handleCloseModal}>
-            <Modal.Header closeButton>
-              <Modal.Title>Success</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              Your form has been successfully submitted.
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseModal}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal> */}
+          {}
+          {}
 
         </div>
       </div>
     </div>
   );
 }
-

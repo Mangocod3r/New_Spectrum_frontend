@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import '../../components/button_nepal.css';
 import fetchWithAuth from '../../api/fetchWithAuth'
 
 export default function Stuideas() {
-  const { title } = useParams();
   const { user } = useAuthContext();
 
   const [showPopup, setShowPopup] = useState(true);
@@ -81,7 +80,6 @@ export default function Stuideas() {
             </tbody>
           </table>
         </div>
-        {/* <Footer></Footer> */}
       </>
     );
   }

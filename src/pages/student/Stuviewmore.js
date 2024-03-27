@@ -8,13 +8,11 @@ import '../../components/search.css';
 import { motion } from 'framer-motion';
 import fetchWithAuth from "../../api/fetchWithAuth";
 
-
 export default function Stuviewmore() {
 
   const { title } = useParams()
 
   const [search, setSearch] = useState('')
-  // console.log(search)
 
   const [cats, setCats] = useState([
     {
@@ -30,23 +28,16 @@ export default function Stuviewmore() {
     }
   ]);
 
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_API_HOST}/posts/${title}`)
-  //     // fetch(`http://localhost:4000/posts/${title}`)
-  //     .then((res) => res.json())
-  //     .then((jsonRes) => setCats(jsonRes));
-  // }, []);
-  
   useEffect(() => {
     fetchWithAuth(`${process.env.REACT_APP_API_HOST}/posts/${title}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error('Network response was not ok');
             }
-            return res.json(); // Parse the response body as JSON
+            return res.json(); 
         })
         .then((jsonRes) => {
-            setCats(jsonRes); // Set the cats state with the fetched data
+            setCats(jsonRes); 
         })
         .catch((error) => {
             console.error(error);
@@ -54,18 +45,17 @@ export default function Stuviewmore() {
 }, []);
 
   useEffect(() => {
-    // console.log(cats);
+
   }, [cats]);
   console.log(cats)
-  // const post = cats.filter(post => post.title === title)
+
   const post = cats;
   console.log(post)
-  // console.log(post)
+
   const buttonVariants = {
     hover: {
       scale: 1.1,
-      // textShadow: "0px 0px 8px rgb(255,255,255)",
-      // boxShadow: "0px 0px 8px rgb(255,255,255)",
+
       transition: {
         duration: 0.3,
         repeat: Infinity,
@@ -87,16 +77,8 @@ export default function Stuviewmore() {
               <p className=" text-center lh-base ml-4 overview_text">
                 {card.text}
               </p>
-              {/* <h4 className="ml-4">{card.sub}</h4>
-              <ul>
-                <li style={{ fontSize: '14px' }}>
-                  {card.p1}
-                </li>
-                <li style={{ fontSize: '14px' }}>
-                  {card.p2}
-                </li>
-              </ul> */}
-              
+              {}
+
             </div>
             <div className="col">
               <img src={card.img} alt="" className="img-fluid p-4" style={{ borderRadius: '2.5rem' }} />
@@ -104,12 +86,7 @@ export default function Stuviewmore() {
             <div className="display-5 text-center">
                 <div className=" p-3 text-center">
                   <Link to={`/stu_km/${card.header}`} style={{ textDecoration: 'none' }}>
-                    {/* <motion.button className="bb" style={{height:'60px'}}
-                    variants = {buttonVariants} 
-                    whileHover = "hover"
-                    >
-                       {card.p3}
-                    </motion.button> */}
+                    {}
                     <button className="my-button bb blue overview_button">
                       KNOW MORE
                     </button>
@@ -117,8 +94,6 @@ export default function Stuviewmore() {
                 </div>
               </div>
           </motion.div>
-
-
 
         </td>
       </tr>
@@ -134,7 +109,7 @@ export default function Stuviewmore() {
         transition={{ delay: 0.5, duration: 0.5 }}
       >
         <h1 className="text-center mb-5" style={{ fontWeight: 600, color: '#0056D2' }}>{title}</h1>
-        {/* <div className="box w-75"> */}
+        {}
         <Form>
           <InputGroup className='my-3 w-75 m-4'>
             <Form.Control className=" rounded-pill"
@@ -143,14 +118,8 @@ export default function Stuviewmore() {
             />
           </InputGroup>
         </Form>
-        {/* <div className="c1">
-          <input className="inpux"type="text" onChange={(e) => setSearch(e.target.value)}
-              placeholder='Search project(s)'/>
-            <div className="btnn">
-              <i className="fa fa-search"></i>
-            </div>
-        </div> */}
-        {/* </div> */}
+        {}
+        {}
         <table className="table-fill">
           <thead>
             <tr>
@@ -168,7 +137,7 @@ export default function Stuviewmore() {
           </tbody>
         </table>
       </motion.div>
-      {/* <Footer></Footer> */}
+      {}
     </>
   );
 }

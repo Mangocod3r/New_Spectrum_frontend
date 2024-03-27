@@ -41,16 +41,6 @@ export default function Stuknowmore() {
 
     });
 
-    // const handleChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setCatsup((prev) => {
-    //         return {
-    //             ...prev,
-    //             [name]: value,
-    //         };
-    //     });
-    // };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setCatsup((prev) => {
@@ -59,16 +49,7 @@ export default function Stuknowmore() {
                 [name]: value,
             };
         });
-        // if (name === "overview") {
-        //     setCats((prev) => {
-        //         return [
-        //             {
-        //                 ...prev[0],
-        //                 overview: value,
-        //             },
-        //         ];
-        //     });
-        // }
+
     };
 
     const handleImageChange = (e) => {
@@ -86,7 +67,6 @@ export default function Stuknowmore() {
         };
     };
 
-
     const createPost = (e) => {
         console.log(catsup)
         e.preventDefault();
@@ -99,23 +79,16 @@ export default function Stuknowmore() {
         navigate("/stu_ideas");
     };
 
-    // useEffect(() => {
-    //     // fetch(`http://localhost:4000/posts/${header}`)
-    //     fetch(`${process.env.REACT_APP_API_HOST}/postsh/${header}`)
-    //         .then((res) => res.json())
-    //         .then((jsonRes) => setCats(jsonRes));
-    // }, []);
-
     useEffect(() => {
         fetchWithAuth(`${process.env.REACT_APP_API_HOST}/postsh/${header}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return res.json(); // Parse the response body as JSON
+                return res.json(); 
             })
             .then((jsonRes) => {
-                setCats(jsonRes); // Set the cats state with the fetched data
+                setCats(jsonRes); 
             })
             .catch((error) => {
                 console.error(error);
@@ -154,26 +127,7 @@ export default function Stuknowmore() {
                             </div>
                         </div>
                     </div>
-                    {/* <div className="row-sm-4">
-                        <form>
-                            <div className="form-group">
-                                <label htmlFor="exampleFormControlTextarea1">Enter your idea</label>
-                                <button type="button" className="btn btn-outline btn-light">
-                                    <i className="bi bi-link-45deg" style={{ fontSize: '10px', color: 'green' }} />
-                                </button>
-                                <textarea value={catsup.my_idea} onChange={handleChange} className="form-control" id="exampleFormControlTextarea1" rows={10} defaultValue={""} />
-                            </div>
-                        </form>
-                    </div>
-                    <div className="display-5 text-center">
-                        <button type="button" className="btn btn-success"  onClick={createPost}>
-                            SUBMIT IDEA
-                            <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-upload" viewBox="0 0 16 16">
-                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
-                            </svg>
-                        </button>
-                    </div> */}
+                    {}
                     <Form>
                         <Form.Group controlId="exampleForm.ControlTextarea1">
                             <Form.Control

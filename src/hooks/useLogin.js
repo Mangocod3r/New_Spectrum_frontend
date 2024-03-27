@@ -11,7 +11,6 @@ export const useLogin = () => {
 
     setIsLoading(true)
     setError(null)
-    // fetch(`${process.env.REACT_APP_API_HOST}/posts/${header}`)
 
     const response = await fetch(`${process.env.REACT_APP_API_HOST}/api/user/login`, {
       method: 'POST',
@@ -25,20 +24,14 @@ export const useLogin = () => {
       setError(json.error)
     }
     if (response.ok) {
-      // save the user to local storage
+
       localStorage.setItem('user', JSON.stringify(json))
       console.log(json)
-      // update the auth context
+
       dispatch({type: 'LOGIN', payload: json})
 
-      // update loading state
       setIsLoading(false)
-      //  navigate('/stu')
-      // const user={"role":"Entreprenuer"}
-      // console.log(user.role)
-    //  (user.role == 'Student' ? <Stumain /> : <Entmain />) 
-      // if(user.role=='Student') navigate('/stumain')
-      // else  navigate('/ent')
+
       navigate ("/login")
     }
   }
