@@ -72,7 +72,11 @@ export default function Stuknowmore() {
         e.preventDefault();
 
         axios
-            .post(`${process.env.REACT_APP_API_HOST}/stu_km`, catsup)
+            .post(`${process.env.REACT_APP_API_HOST}/stu_km`, catsup, {
+            headers: {
+                'Authorization': `Bearer ${getTokenFromLocalStorage()}`
+                }
+            })
             .then((res) => console.log(res))
             .catch((err) => console.log(err));
 
