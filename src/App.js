@@ -15,7 +15,7 @@ import Entresp from './pages/entrepreneur/Entresp';
 import Entmain from './pages/entrepreneur/Entmain';
 import Entupload from './pages/entrepreneur/Entupload';
 import Entprop from './pages/entrepreneur/Entprop';
-import Entaccinv from './pages/entrepreneur/Ent_accinv';
+import Entacc_inv from './pages/entrepreneur/Ent_accinv';
 
 import './style.css';
 import Angelmain from './pages/investor/Angelmain';
@@ -211,7 +211,7 @@ function App() {
                 !user ? (
                   <Login />
                 ) : user.role === 'Entreprenuer' ? (
-                  <Entaccinv />
+                  <Entacc_inv />
                 ) : (
                   <Notfound />
                 )
